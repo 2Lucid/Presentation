@@ -32,15 +32,25 @@
 **A** :
 > *"Alors on s'est posé une question simple. Et si l'intelligence artificielle, au lieu de faire le travail à la place de l'élève, le forçait à réfléchir par lui-même ? Et si on construisait une IA qui refuse obstinément de donner la réponse ?"*
 
-*[A fait un signe à D. D active le Mode Avion bien visiblement devant le jury, puis tape une question. Le texte commence à s'afficher token par token. A pointe l'écran.]*
+> *"Pour comprendre ce que ça change, regardez."*
+
+*[D sort deux téléphones et les tient côte à côte, bien visibles du jury. Sur le second, il active le Mode Avion ostensiblement.]*
 
 **A** :
-> *"Ce téléphone est en mode avion. Aucune connexion. Et pourtant, observez : une IA est en train de répondre — en direct, sur la puce de ce téléphone. Aucune donnée ne sort de cet appareil."*
+> *"À gauche, ChatGPT. À droite, notre solution, LUCID — en mode avion, aucune connexion. Même question sur les deux : « Résous 2x + 5 = 13 »."*
 
-*[A laisse 2 secondes au jury pour observer.]*
+*[D tape la question simultanément sur les deux écrans. Silence. Les deux IA répondent.]*
+
+**A** *(pointe l'écran de gauche)* :
+> *"ChatGPT : réponse complète en 3 secondes. « x = 4 ». L'élève recopie, il a sa note, il n'a rien compris."*
+
+*(pointe l'écran de droite)* :
+> *"LUCID : « Que se passe-t-il si tu isoles le terme avec x d'un côté ? » Pas de réponse. Un guidage."*
+
+*[A laisse 3 secondes au jury pour observer le contraste.]*
 
 **A** :
-> *"Ce que vous voyez là, c'est le résultat de huit mois de recherche. Nous sommes quatre lycéens du Lycée Henri Matisse à Vence, et nous nous sommes attaqués à une problématique précise :"*
+> *"À gauche, une IA qui travaille à la place de l'élève. À droite, sans aucune connexion, une IA qui force l'élève à travailler. Ce contraste résume huit mois de recherche. Nous sommes quatre lycéens du Lycée Henri Matisse à Vence, et nous nous sommes attaqués à une problématique précise :"*
 
 **A** *(articule lentement)* :
 > ***"Comment concevoir un assistant scolaire basé sur l'intelligence artificielle qui renforce l'autonomie cognitive de l'élève, plutôt que de s'y substituer, tout en garantissant la confidentialité de ses données personnelles ?"***
