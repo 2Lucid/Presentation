@@ -12,8 +12,6 @@
 **C (Responsable Recherche & Évaluation)** : Présente les fondements scientifiques, le protocole d'évaluation et la discussion critique. Distribue l'étude du MIT.
 **D (Démonstrateur)** : Gère les démonstrations live sur les téléphones. Apporte les preuves expérimentales en temps réel.
 
-> **Note :** Si seulement 2 présentateurs, A absorbe C et B absorbe D.
-
 ---
 
 ## 🎬 2. Le Script
