@@ -153,8 +153,12 @@
 </head>
 <body>
     <div class="editor-notice" contenteditable="false">
-        <strong>Mode Édition Activé :</strong> Vous pouvez cliquer n'importe où dans le texte ci-dessous pour le modifier directement. <br>
-        <em>Astuce : Appuyez sur Ctrl+P (ou Cmd+P) pour l'imprimer ou l'enregistrer en PDF une fois vos modifications terminées.</em>
+        <strong>Mode Édition Activé :</strong> Vous pouvez cliquer n'importe où dans le texte ci-dessous pour le modifier directement.<br>
+        Vos modifications sont sauvegardées automatiquement dans votre navigateur (elles ne s'effaceront pas si vous rafraîchissez la page).
+        <div style="margin-top: 12px; display: flex; gap: 10px;">
+            <button onclick="downloadHTML()" style="padding: 6px 12px; background: #3b82f6; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 500;">📥 Télécharger le fichier modifié</button>
+            <button onclick="resetContent()" style="padding: 6px 12px; background: #ef4444; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 500;">🔄 Réinitialiser au script original</button>
+        </div>
     </div>
     <div id="editable-content" contenteditable="true" spellcheck="false">
         <h1>🎤 LUCID — Script Oral V4</h1>
@@ -453,45 +457,83 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
+        function applyColors() {
             const colors = {
-                'A': { bg: 'rgba(59, 130, 246, 0.1)', border: '#3b82f6' }, // Bleu
-                'B': { bg: 'rgba(16, 185, 129, 0.1)', border: '#10b981' }, // Vert
-                'C': { bg: 'rgba(139, 92, 246, 0.1)', border: '#8b5cf6' }, // Violet
-                'D': { bg: 'rgba(245, 158, 11, 0.1)', border: '#f59e0b' }  // Orange
+                'A': { bg: 'rgba(59, 130, 246, 0.1)', border: '#3b82f6' },
+                'B': { bg: 'rgba(16, 185, 129, 0.1)', border: '#10b981' },
+                'C': { bg: 'rgba(139, 92, 246, 0.1)', border: '#8b5cf6' },
+                'D': { bg: 'rgba(245, 158, 11, 0.1)', border: '#f59e0b' }
             };
 
             let currentSpeaker = null;
             const contentDiv = document.getElementById('editable-content');
 
             contentDiv.childNodes.forEach(node => {
-                if (node.nodeType === 1) { // Element node
-                    // Réinitialiser le speaker au changement de section
+                if (node.nodeType === 1) { 
                     if (node.tagName.match(/^H[1-6]$/) || node.tagName === 'HR') {
                         currentSpeaker = null;
                     } 
-                    // Détection du speaker
                     else if (node.tagName === 'P') {
                         const strong = node.querySelector('strong');
                         if (strong) {
                             const text = strong.textContent.trim();
-                            // Cherche "A", "B", "C" ou "D" suivi d'un espace, d'une parenthèse ou de la fin
                             const match = text.match(/^([ABCD])(\s|\(|$)/);
                             if (match && !text.includes('Note')) {
                                 currentSpeaker = match[1];
-                                // Colore le nom du speaker
                                 strong.style.color = colors[currentSpeaker].border;
                             }
                         }
                     } 
-                    // Appliquer la couleur au texte prononcé
                     else if (node.tagName === 'BLOCKQUOTE' && currentSpeaker) {
                         node.style.backgroundColor = colors[currentSpeaker].bg;
                         node.style.borderLeftColor = colors[currentSpeaker].border;
                     }
                 }
             });
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const contentDiv = document.getElementById('editable-content');
+            
+            // On load: check if there's a saved version
+            const saved = localStorage.getItem('lucid_script_saved');
+            if (saved) {
+                contentDiv.innerHTML = saved;
+            } else {
+                applyColors();
+                localStorage.setItem('lucid_script_original', contentDiv.innerHTML); // Save original state once with colors
+            }
+
+            // Auto-save on every edit
+            contentDiv.addEventListener('input', () => {
+                localStorage.setItem('lucid_script_saved', contentDiv.innerHTML);
+            });
         });
+
+        function downloadHTML() {
+            let htmlContent = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], {type: "text/html;charset=utf-8"});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = "LUCID_Script_Oral_Final.html";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function resetContent() {
+            if (confirm("Voulez-vous vraiment annuler toutes vos modifications et revenir au script original ?")) {
+                localStorage.removeItem('lucid_script_saved');
+                const original = localStorage.getItem('lucid_script_original');
+                if (original) {
+                    document.getElementById('editable-content').innerHTML = original;
+                } else {
+                    location.reload(); // Fallback
+                }
+            }
+        }
     </script>
 </body>
 </html>
