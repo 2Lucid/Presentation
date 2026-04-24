@@ -23,6 +23,22 @@
             margin: 0 auto;
             padding: 40px 20px;
         }
+        
+        .editor-notice {
+            background-color: #eff6ff;
+            color: #1e3a8a;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            margin-bottom: 2em;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        @media print {
+            .editor-notice {
+                display: none;
+            }
+        }
 
         h1 {
             font-size: 2.5rem;
@@ -103,6 +119,10 @@
             margin: 2em 0;
         }
 
+        #editable-content {
+            outline: none;
+        }
+
         /* Print optimization */
         @media print {
             body {
@@ -117,8 +137,8 @@
                 page-break-inside: avoid;
             }
             blockquote {
-                background-color: transparent;
-                border-left: 3px solid #000;
+                /* Let JS styling apply during print if enabled, otherwise fallback */
+                border-left-width: 4px !important;
             }
             h3 {
                 background: transparent;
@@ -132,7 +152,12 @@
     </style>
 </head>
 <body>
-    <h1>🎤 LUCID — Script Oral V4</h1>
+    <div class="editor-notice" contenteditable="false">
+        <strong>Mode Édition Activé :</strong> Vous pouvez cliquer n'importe où dans le texte ci-dessous pour le modifier directement. <br>
+        <em>Astuce : Appuyez sur Ctrl+P (ou Cmd+P) pour l'imprimer ou l'enregistrer en PDF une fois vos modifications terminées.</em>
+    </div>
+    <div id="editable-content" contenteditable="true" spellcheck="false">
+        <h1>🎤 LUCID — Script Oral V4</h1>
 <p><em>Durée visée : 10 minutes / 4 Présentateurs</em>
 <em>Concours : C&#39;Génial 2026 / Faites de la Science</em></p>
 <hr>
@@ -425,5 +450,48 @@
 <li><strong>T= 5:45 (D)</strong> : Duel double téléphone + carte question piège.</li>
 </ul>
 
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const colors = {
+                'A': { bg: 'rgba(59, 130, 246, 0.1)', border: '#3b82f6' }, // Bleu
+                'B': { bg: 'rgba(16, 185, 129, 0.1)', border: '#10b981' }, // Vert
+                'C': { bg: 'rgba(139, 92, 246, 0.1)', border: '#8b5cf6' }, // Violet
+                'D': { bg: 'rgba(245, 158, 11, 0.1)', border: '#f59e0b' }  // Orange
+            };
+
+            let currentSpeaker = null;
+            const contentDiv = document.getElementById('editable-content');
+
+            contentDiv.childNodes.forEach(node => {
+                if (node.nodeType === 1) { // Element node
+                    // Réinitialiser le speaker au changement de section
+                    if (node.tagName.match(/^H[1-6]$/) || node.tagName === 'HR') {
+                        currentSpeaker = null;
+                    } 
+                    // Détection du speaker
+                    else if (node.tagName === 'P') {
+                        const strong = node.querySelector('strong');
+                        if (strong) {
+                            const text = strong.textContent.trim();
+                            // Cherche "A", "B", "C" ou "D" suivi d'un espace, d'une parenthèse ou de la fin
+                            const match = text.match(/^([ABCD])(\s|\(|$)/);
+                            if (match && !text.includes('Note')) {
+                                currentSpeaker = match[1];
+                                // Colore le nom du speaker
+                                strong.style.color = colors[currentSpeaker].border;
+                            }
+                        }
+                    } 
+                    // Appliquer la couleur au texte prononcé
+                    else if (node.tagName === 'BLOCKQUOTE' && currentSpeaker) {
+                        node.style.backgroundColor = colors[currentSpeaker].bg;
+                        node.style.borderLeftColor = colors[currentSpeaker].border;
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
