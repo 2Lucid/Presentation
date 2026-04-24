@@ -229,7 +229,7 @@ template = """<!DOCTYPE html>
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = "LUCID_Script_Oral_Final.html";
+            a.download = "index.html";
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
@@ -254,5 +254,5 @@ template = """<!DOCTYPE html>
 
 final_html = template.replace("{content}", content)
 
-with open("LUCID_Script_Oral_Final.html", "w") as f:
+with open("index.html", "w") as f:
     f.write(final_html)
