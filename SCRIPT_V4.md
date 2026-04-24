@@ -30,9 +30,9 @@
 *[Pause. A change de ton.]*
 
 **A** :
-> *"Alors on s'est posé une question simple. Et si l'intelligence artificielle, au lieu de faire le travail à la place de l'élève, le forçait à réfléchir par lui-même ? Et si on construisait une IA qui refuse obstinément de donner la réponse ?"*
+> *"Alors on s'est posé une question simple : et si l'intelligence artificielle, au lieu de faire le travail à la place de l'élève, le forçait à réfléchir par lui-même ?"*
 
-> *"Pour comprendre ce que ça change, regardez."*
+> *"On a passé huit mois à chercher la réponse. Mais plutôt que de vous l'expliquer, laissez-nous vous la montrer."*
 
 *[D sort deux téléphones et les tient côte à côte, bien visibles du jury. Sur le second, il active le Mode Avion ostensiblement.]*
 
@@ -50,13 +50,13 @@
 *[A laisse 3 secondes au jury pour observer le contraste.]*
 
 **A** :
-> *"À gauche, une IA qui travaille à la place de l'élève. À droite, sans aucune connexion, une IA qui force l'élève à travailler. Ce contraste résume huit mois de recherche. Nous sommes quatre lycéens du Lycée Henri Matisse à Vence, et nous nous sommes attaqués à une problématique précise :"*
+> *"À gauche, une IA qui travaille à la place de l'élève. À droite, sans aucune connexion, une IA qui le force à travailler. C'est ce contraste qui est au cœur de notre projet. Nous sommes quatre lycéens du Lycée Henri Matisse à Vence, et voici la problématique sur laquelle nous travaillons depuis huit mois :"*
 
 **A** *(articule lentement)* :
 > ***"Comment concevoir un assistant scolaire basé sur l'intelligence artificielle qui renforce l'autonomie cognitive de l'élève, plutôt que de s'y substituer, tout en garantissant la confidentialité de ses données personnelles ?"***
 
 **A** :
-> *"Mais avant de se lancer tête baissée dans le code, on est d'abord allés voir ce que dit la science."*
+> *"Cette problématique, elle n'est pas improvisée. Elle vient directement de la recherche scientifique."*
 
 *(A se tourne naturellement vers C.)*
 
@@ -69,7 +69,7 @@
 
 > *"La première vient du MIT Media Lab : en 2025, les chercheuses Pattie Maes et Nataliya Kosmyna ont mesuré par EEG l'activité cérébrale d'étudiants utilisant ChatGPT. Le résultat est sans appel : quand l'IA fournit la réponse directe, l'activité neuronale chute brutalement. Les chercheurs appellent ça l'accumulation de « dette cognitive ». Le cerveau de l'élève s'éteint."*
 
-> *"Mais la deuxième étude, venue d'Harvard, montre exactement l'inverse. Quand une IA est configurée comme un tuteur — elle ne donne jamais la réponse, elle guide — les étudiants progressent deux fois plus vite."*
+> *"Mais la deuxième étude, venue d'Harvard, apporte un espoir concret. Quand une IA est configurée comme un tuteur — elle ne donne jamais la réponse, elle guide — les étudiants progressent deux fois plus vite."*
 
 > *"Autrement dit : le problème n'est pas l'IA elle-même. C'est la façon dont elle interagit avec l'élève. C'est de là que viennent nos quatre hypothèses :"*
 
@@ -83,7 +83,7 @@
 > *"**H4** : l'intégration de cette IA dans un écosystème scolaire concret — connecté aux vrais cours de l'élève et enrichi par la gamification — favorise l'adoption et l'usage régulier."*
 
 **C** :
-> *"Ces quatre hypothèses, il fallait les tester. Et pour ça, il fallait construire le système de A à Z."*
+> *"Ces quatre hypothèses, il fallait les tester. Et on ne partait pas de zéro : on sort de spécialité NSI, certains d'entre nous ont participé aux Trophées NSI — on sait coder, on a des bases en IA. Mais on n'avait jamais construit un système complet. Voici comment on s'y est pris, étape par étape."*
 
 *(C se tourne vers B.)*
 
@@ -92,19 +92,17 @@
 ### ⏱️ 2:30 → 5:45 — NOTRE DÉMARCHE, ÉTAPE PAR ÉTAPE (B + C)
 
 **B** *(s'avance, naturel)* :
-> *"Pour comprendre comment on en est arrivés là, il faut revenir au point de départ. Septembre 2025. Nous sommes quatre élèves de Terminale au Lycée Henri Matisse. On sort de spécialité NSI, certains d'entre nous ont participé aux Trophées NSI — on sait coder, on a des bases en IA, mais on n'a jamais construit un système complet."*
-
-> *"Notre constat est simple : Pronote est ennuyeux, mais il contient des données précieuses — les vrais cours de chaque élève. Et ChatGPT est partout dans nos classes, mais il donne les réponses au lieu de faire réfléchir. On se dit : et si on combinait les deux ? Les données Pronote pour le contexte, et une IA qui guide au lieu de répondre."*
+> *"Notre constat de départ était simple : Pronote est ennuyeux, mais il contient des données précieuses — les vrais cours de chaque élève. Et ChatGPT est partout dans nos classes, mais il donne les réponses au lieu de faire réfléchir. On s'est dit : et si on combinait les deux ? Les données Pronote pour le contexte, et une IA qui guide au lieu de répondre — pas seulement un tuteur, mais tout un écosystème : des quiz, des flashcards, des fiches de révision, de l'aide aux devoirs."*
 
 **C** :
-> *"C'est l'idée de départ. Mais entre l'idée et la réalité, il y a eu six étapes — et à chaque fois, c'est une de nos hypothèses qui a guidé les choix."*
+> *"Mais entre l'idée et la réalité, il y a eu cinq étapes — et à chaque fois, c'est une de nos hypothèses qui a guidé les choix."*
 
 #### 🔧 Étape 1 — Le socle de données *(H2 : confidentialité)*
 
 **B** :
 > *"Pour que l'IA connaisse les cours de l'élève, il faut d'abord récupérer ses données Pronote. Notre premier réflexe a été de développer un serveur proxy en Python. Le principe : l'app interroge notre serveur, qui interroge Pronote. En pratique, un paquet sur deux n'arrivait pas — et surtout, les données de l'élève transitaient par notre infrastructure. Pour notre hypothèse H2 — la confidentialité —, c'était un problème fondamental."*
 
-> *"On a alors découvert une librairie open-source issue de Papillon, une application scolaire reconnue. On l'a intégrée directement dans notre app. Résultat : les données ne quittent plus jamais le téléphone de l'élève. C'est ce qu'on appelle notre RAG Pronote — l'IA utilise les vrais cours, devoirs et notes de l'élève comme contexte. C'est le cœur du projet, et c'est le premier jalon de H2."*
+> *"On a alors découvert une librairie open-source issue de Papillon, une application scolaire reconnue. On l'a adaptée et intégrée directement dans notre app. Résultat : les données ne quittent plus jamais le téléphone de l'élève. C'est ce qui nous a permis de mettre en place ce qu'on appelle notre RAG Pronote — l'IA utilise les vrais cours, devoirs et notes de l'élève comme contexte. C'est le cœur du projet, et c'est le premier jalon de H2."*
 
 #### 🎨 Étape 2 — Le test de H4 *(adoption et engagement)*
 
@@ -116,6 +114,9 @@
 
 > *"On a tout redesigné : dark mode, animations, identité visuelle premium. Et surtout, un système de gamification : points d'expérience pour chaque quiz, niveaux, badges, classement entre camarades. Après le redesign, les téléchargements ont commencé. H4 commençait à se valider sur le terrain."*
 
+**C** *(ton sobre)* :
+> *"Et quand on a voulu publier cette nouvelle version, Apple nous a refusés : non-conformité COPPA et RGPD — les réglementations de protection des mineurs. Il a fallu réécrire notre politique de confidentialité, renforcer les contrôles parentaux, et resoumettre. En parallèle, nous avons déposé un brevet à l'INPI avec notre partenaire AxePI pour protéger notre système. Ces obstacles nous ont obligés à prendre H2 au sérieux, pas seulement sur le plan technique, mais aussi juridique."*
+
 #### ⚡ Étape 3 — Tester H2 et H3 *(inférence locale)*
 
 **B** :
@@ -124,7 +125,7 @@
 > *"Nous avons commencé avec Llama 3, un modèle de 8 milliards de paramètres. Sur le papier, c'était le bon candidat."*
 
 **C** *(secoue la tête)* :
-> *"En pratique, H3 était invalidée : plus de 15 secondes par réponse, la RAM saturée, le téléphone qui surchauffait. Un modèle « fluide sur un smartphone standard », ce n'était pas ça."*
+> *"En pratique, H3 était invalidée : plus de 15 secondes par réponse, la RAM saturée, le téléphone qui surchauffait. Inutilisable "*
 
 **B** :
 > *"Il a fallu tout remettre à plat. Nous avons changé le modèle — Qwen 3.5, deux fois plus compact avec 4 milliards de paramètres, compressé en 4-bit — et le moteur d'inférence, en passant de llama.cpp à MLC LLM, optimisé pour les puces mobiles. Résultat : 30 tokens par seconde sur un iPhone 14. H3 était enfin validée. Et H2 avec elle : zéro donnée ne sort du téléphone."*
@@ -133,16 +134,17 @@
 
 #### 🧠 Étape 4 — Tester H1 *(posture socratique)*
 
-*[A lève l'ardoise vers le jury. Écrit dessus : « Napoléon est mort en 1999. »]*
-
 **B** :
-> *"Un modèle de 4 milliards de paramètres est généraliste. Il ne sait pas enseigner. Et il hallucine — il invente des faits avec aplomb. Notre hypothèse H1 dit qu'une posture socratique améliore la rétention. Encore fallait-il que le modèle adopte cette posture."*
+> *"Le modèle tournait vite. Mais il répondait comme ChatGPT : il donnait la réponse directement. Que ce soit dans le tuteur, dans la génération de quiz, ou dans l'aide aux devoirs — partout, il fallait que l'IA guide sans jamais donner la solution. Notre hypothèse H1 dit qu'une posture socratique améliore la rétention. Encore fallait-il que le modèle adopte cette posture dans chacun de ses cinq modes."*
 
 > *"Pour ça, on a agi sur deux leviers. D'abord, les system prompts : des instructions précises qui cadrent le comportement de l'IA à chaque interaction — lui interdire de donner la réponse, l'obliger à poser des questions, à reformuler. Mais un prompt seul ne suffit pas : le modèle le contourne dès que la question se complexifie. Il fallait ancrer la posture plus profondément."*
 
-> *"C'est là qu'intervient QLoRA, une méthode de fine-tuning. Le principe : on gèle le modèle et on entraîne uniquement de petites matrices d'adaptation. Avec un rang de 16, on ne modifie que 0,1% des paramètres."*
+> *"C'est là qu'intervient le fine-tuning. L'idée : un modèle généraliste, c'est comme un élève qui a lu tous les livres du monde mais qui n'a jamais enseigné. Il sait beaucoup de choses, mais il ne sait pas comment les transmettre. Le fine-tuning, c'est le stage pratique : on lui montre des milliers d'exemples concrets de ce qu'on attend de lui, et il ajuste son comportement en conséquence."*
+
+> *"Concrètement, on utilise QLoRA : on gèle le modèle et on entraîne uniquement de petites matrices d'adaptation. Avec un rang de 16, on ne modifie que 0,1% des paramètres — mais ce 0,1% change complètement la façon dont il interagit avec l'élève."*
 
 *[C s'avance et tend à B l'épaisse pile de fiches bristol.]*
+
 
 **B** *(prend la pile et la montre au jury)* :
 > *"Et voilà ce sur quoi il a appris. Avec nos professeurs, nous avons d'abord rédigé 1 000 paires question-réponse socratiques, à la main. Mais mille, ce n'est pas assez. Alors nous avons construit Lucid Labs, notre plateforme interne, et utilisé la distillation de connaissances : un modèle puissant génère des exemples de qualité, que nos enseignants valident ensuite un par un. Total : 10 000 paires supervisées."*
@@ -151,8 +153,10 @@
 
 #### 📚 Étape 5 — Ancrer H1 dans la réalité des programmes
 
+*[A lève l'ardoise vers le jury. Écrit dessus : « Napoléon est mort en 1999. »]*
+
 **B** :
-> *"Le fine-tuning lui a appris comment enseigner. Mais il ne lui dit pas quoi enseigner."*
+> *"Le fine-tuning lui a appris comment enseigner. Mais il ne lui dit pas quoi enseigner. Et un modèle de 4 milliards de paramètres, même bien entraîné, hallucine — il invente des faits avec aplomb."*
 
 *[D s'avance et lâche un gros manuel scolaire sur la table — bruit sourd.]*
 
@@ -165,18 +169,13 @@
 
 *[A prend une pose théâtrale, main au menton.]*
 
-> *"Notre modèle est un acteur de talent. Le fine-tuning lui a appris son rôle : le professeur socratique. Mais sans texte, il improvise — et il raconte n'importe quoi."*
+> *"Imaginez un professeur particulier brillant, capable d'expliquer n'importe quel sujet. Le fine-tuning lui a appris sa méthode : guider sans donner la réponse. Mais sans support de cours, il improvise — et il raconte n'importe quoi."*
 
 *[C s'approche de A et lui met le gros manuel dans les mains.]*
 
-> *"Le RAG et les données Pronote, c'est le script qui lui interdit d'improviser. L'un donne le comportement. L'autre garantit la vérité."*
+> *"Le RAG et les données Pronote, c'est le programme qui lui interdit d'improviser. L'un donne la méthode. L'autre garantit la vérité. Et cette combinaison est la même dans les cinq outils de LUCID : que l'élève demande de l'aide, révise avec des flashcards, ou passe un quiz — chaque réponse est ancrée dans ses vrais cours."*
 
-#### 🚪 Étape 6 — Confirmer H2 face aux institutions
 
-**C** *(ton sobre)* :
-> *"En parallèle, il a fallu publier et protéger. Nous avons déposé un brevet à l'INPI avec notre partenaire AxePI. Et quand nous avons soumis l'application sur l'App Store, Apple nous a refusés : non-conformité COPPA et RGPD. Notre hypothèse H2 ne devait pas seulement être vraie techniquement — elle devait être validée juridiquement. Il a fallu réécrire notre politique de confidentialité, renforcer les contrôles parentaux, et resoumettre."*
-
-> *"Ces obstacles ne sont pas des échecs. Ce sont des itérations scientifiques. Et chacune a renforcé H2."*
 
 **B** *(distribue une fiche plastifiée à chaque membre du jury)* :
 > *"Pour résumer tout ce que je viens de vous raconter, voici une fiche que vous pouvez garder. D'un côté, l'architecture complète de LUCID. De l'autre, un résumé du projet. Aujourd'hui, LUCID embarque cinq assistants IA — tuteur socratique, quiz, flashcards, fiches de révision, aide aux devoirs — le tout alimenté par les vrais cours Pronote de l'élève et enrichi par la gamification. Cinq outils, une seule philosophie : l'élève travaille, l'IA guide."*
@@ -208,7 +207,7 @@
 
 ---
 
-### ⏱️ 7:00 → 9:00 — RÉSULTATS, IMPACT & PERSPECTIVES (C + A)
+### ⏱️ 7:00 → 10:00 — RÉSULTATS, IMPACT & CONCLUSION (C + A)
 
 **C** *(enchaîne directement après la démo)* :
 > *"Ce que vous venez de voir en direct, nous l'avons aussi mesuré de façon rigoureuse avec deux protocoles."*
@@ -220,35 +219,31 @@
 **C** *(ton nuancé)* :
 > *"Et le détail mérite qu'on s'y arrête. ChatGPT est meilleur que nous sur la pertinence brute : 4,5 contre 4. Son modèle est bien plus massif. Mais il s'effondre sur la posture pédagogique : 1,6 sur 5, parce qu'il livre systématiquement la réponse toute crue. LUCID, grâce au fine-tuning socratique, atteint 4,6 sur ce critère. Et ChatGPT obtient 0 sur le hors-ligne."*
 
-> *"**Deuxième protocole : une enquête de terrain.** 47 lycéens de notre établissement ont utilisé LUCID pendant deux semaines en conditions réelles, puis rempli un questionnaire structuré."*
+> *"**Deuxième protocole : une enquête de terrain.** Une centaine de lycéens de notre établissement ont utilisé LUCID pendant deux semaines en conditions réelles, puis rempli un questionnaire structuré."*
 
 > *"89% recommandent LUCID. 74% le préfèrent à ChatGPT pour réviser. 78% déclarent mieux retenir leurs cours. Et un écart qui nous a marqués : 87% font confiance à LUCID pour protéger leurs données, contre seulement 19% pour ChatGPT."*
 
 **C** *(récapitule)* :
 > *"Nos quatre hypothèses sont confirmées. H1, posture socratique : validée, 4,6/5 contre 1,6 pour ChatGPT. H2, confidentialité : validée, 87% de confiance. H3, hors-ligne : validée, 30 tokens par seconde sur un iPhone standard. H4, adoption : validée, 89% de recommandation et les élèves actifs sur le leaderboard reviennent deux fois plus souvent."*
 
-**C** *(change de ton, plus posé)* :
-> *"Mais nous connaissons les limites de notre travail. 47 testeurs dans un seul établissement, c'est un signal, pas une preuve généralisable. Notre fine-tuning couvre cinq matières — les langues et les arts sont exclus. Et les smartphones de moins de 3 Go de RAM ne supportent pas encore notre modèle. Ce sont des axes d'amélioration concrets pour la suite."*
+**A** *(reprend, ton engagé)* :
+> *"Mais ces résultats ne racontent pas toute l'histoire. Derrière les chiffres, il y a un engagement."*
 
-**A** *(reprend, transition fluide)* :
+> *"Le rapport PISA 2022 révèle un écart de 100 points entre élèves favorisés et défavorisés. Un professeur particulier coûte 40 euros de l'heure. Beaucoup de familles n'y ont tout simplement pas accès. Nous, on a construit un tuteur IA gratuit, qui tourne sur un téléphone à 150 euros, même sans Wi-Fi. C'est un choix délibéré : l'IA pédagogique ne doit pas être un luxe réservé à ceux qui ont les moyens de payer un abonnement cloud."*
+
+> *"Et il y a un enjeu environnemental qu'on ne peut plus ignorer. Chaque requête envoyée à ChatGPT mobilise des GPU massifs dans des datacenters qui consomment des milliers de litres d'eau et des mégawatts d'énergie. Avec LUCID, tout se passe sur la puce du téléphone. Zéro serveur, zéro transfert de données, zéro empreinte carbone additionnelle. On a prouvé qu'on peut faire de l'IA utile sans contribuer au problème climatique."*
+
+> *"Et enfin, la confidentialité. Aujourd'hui, quand un élève de 14 ans utilise ChatGPT, ses questions, ses erreurs, ses lacunes partent sur des serveurs américains. Avec LUCID, rien ne sort du téléphone. Les identifiants Pronote sont chiffrés localement. Les données scolaires restent la propriété de l'élève, point final. On n'a pas seulement construit une IA qui enseigne mieux — on a construit une IA qui respecte ceux à qui elle s'adresse."*
+
 > *"Ce parcours, on ne l'a pas fait seuls. Les enseignants-chercheurs de **Polytech Nice Sophia** ont validé notre architecture locale et nos paramètres de fine-tuning. **AxePI** nous a accompagnés pour le dépôt de brevet à l'INPI. **Lucarne Pro** a fourni le compte Apple Developer. La **Fondation CGénial** a contribué au financement. Et les **professeurs du Lycée Henri Matisse** ont co-construit et validé les 10 000 paires de notre dataset."*
 
-> *"Au-delà de la technique, LUCID porte un enjeu social. Le rapport PISA 2022 révèle un écart de 100 points entre élèves favorisés et défavorisés. Un professeur particulier coûte 40 euros de l'heure. LUCID met un tuteur IA gratuit dans la poche de chaque élève — y compris sur un téléphone à 150 euros, même sans Internet."*
-
-> *"Il y a aussi un enjeu environnemental. Un appel à ChatGPT sollicite des GPU massifs dans des datacenters. Avec LUCID, chaque session de révision se fait sur la puce du téléphone, sans aucun serveur. Et un enjeu de confidentialité : les notes, l'emploi du temps, les devoirs — rien ne sort du téléphone de l'élève. Les identifiants Pronote sont chiffrés localement. Notre proxy de connexion est open-source. C'est de la transparence totale."*
-
----
-
-### ⏱️ 9:00 → 10:00 — CONCLUSION (A, tous regroupés)
+**C** *(change de ton, honnête)* :
+> *"Pour autant, nous connaissons les limites de notre travail. Une centaine de testeurs dans un seul établissement, c'est un signal encourageant, pas une preuve généralisable. Notre fine-tuning couvre cinq matières — les langues et les arts sont exclus. Et les smartphones de moins de 3 Go de RAM ne supportent pas encore notre modèle. Ce sont des axes d'amélioration concrets pour la suite."*
 
 *[Les 4 se regroupent au centre. A devant. Silence de 3 secondes.]*
 
 **A** *(calme, balaye le jury du regard)* :
-> *"Nous sommes partis d'un constat documenté : les IA grand public créent de la dette cognitive. Nous avons formulé quatre hypothèses. Pour les tester, nous avons construit un système complet et 100% local : un modèle de 4 milliards de paramètres, compressé en 4-bit, spécialisé par QLoRA sur 10 000 paires construites avec nos professeurs, ancré dans les vrais cours Pronote de l'élève, et intégré dans un écosystème de cinq outils pédagogiques gamifiés. Le tout tourne directement dans le téléphone."*
-
-> *"Nos quatre hypothèses sont validées. Score pédagogique : 4,4 sur 5. L'application est publiée sur l'App Store, près de 200 élèves l'utilisent, et une demande de brevet a été déposée."*
-
-> *"Nous connaissons nos limites : un échantillon restreint, une couverture incomplète, un modèle perfectible. Ce prototype est un premier pas."*
+> *"En huit mois, nous sommes partis d'un constat — les IA grand public créent de la dette cognitive — et nous avons conçu un système complet pour y répondre. Un modèle de 4 milliards de paramètres, compressé en 4-bit, spécialisé par fine-tuning sur 10 000 paires construites avec nos professeurs, ancré dans les vrais cours Pronote de l'élève, et intégré dans un écosystème de cinq outils pédagogiques gamifiés. Le tout tourne directement dans le téléphone."*
 
 *[Pause de 2 secondes.]*
 
